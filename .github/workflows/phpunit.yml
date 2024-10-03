@@ -1,0 +1,20 @@
+name: 'do PHPUnit'
+
+on:
+  push: 
+    branches:
+      - 'feature/*'
+      - 'hotfix/*'
+      - 'release/*'
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  do_phpunit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: init
+        run: make init
+      - name: check echo
+        run: echo 'init end'
